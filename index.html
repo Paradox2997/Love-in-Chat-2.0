@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Чат — с красной полосой и баннером слева</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- ОБЩИЙ КОНТЕЙНЕР (вертикальный flex) -->
+    <div class="app">
+
+        <!-- КРАСНАЯ ПОЛОСА С БАННЕРОМ -->
+        <div class="banner">
+            <img src="images/banner.gif" alt="Баннер" />
+        </div>
+
+        <!-- ОСНОВНОЙ ЧАТ -->
+        <div class="chat">
+
+            <!-- ШАПКА -->
+            <header class="header">
+                <div class="header-left"></div>
+                <div class="top-links">
+                    <a href="#">Видеочат &gt;&gt;</a>
+                    <a href="#">TG чат</a>
+                    <a href="#">Акции</a>
+                </div>
+            </header>
+
+            <!-- ПАНЕЛЬ ВКЛАДОК -->
+            <div class="tabs-bar">
+                <button class="tab-scroll left" id="tabScrollLeft">‹</button>
+                <div class="tabs-container" id="tabsContainer">
+                    <div class="tabs" id="tabsList"></div>
+                </div>
+                <button class="tab-scroll right" id="tabScrollRight">›</button>
+            </div>
+
+            <!-- ОСНОВНАЯ ОБЛАСТЬ -->
+            <div class="main-area">
+                <div class="messages" id="messageContainer"></div>
+                <div class="right-panel" id="rightPanel">
+                    <button class="toggle-btn" id="toggleBtn">◀</button>
+                    <div class="panel-content">
+                        <div class="rooms" id="roomsList">
+                            <div class="section-title">Комнаты</div>
+                        </div>
+                        <button id="createRoomBtn" class="create-room-btn">+ Создать комнату</button>
+                        <div class="users" id="usersList">
+                            <div class="section-title">Онлайн</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ПАНЕЛЬ ВВОДА -->
+            <div class="input-area">
+                <input type="text" id="messageInput" placeholder="Введите сообщение..." />
+                <button id="sendButton">Отправить</button>
+            </div>
+
+        </div> <!-- конец .chat -->
+
+    </div> <!-- конец .app -->
+
+    <!-- МОДАЛЬНЫЕ ОКНА -->
+    <div class="modal-overlay" id="createRoomModal">
+        <div class="modal">
+            <h2>Создать комнату</h2>
+            <label>Название комнаты:</label>
+            <input type="text" id="roomNameInput" placeholder="Название" />
+            <label>Пароль (необязательно):</label>
+            <input type="text" id="roomPasswordInput" placeholder="Оставьте пустым" />
+            <label>Разрешённый пол (можно выбрать несколько):</label>
+            <div class="gender-check-group">
+                <label><input type="checkbox" class="gender-check" value="М" /> Мужской</label>
+                <label><input type="checkbox" class="gender-check" value="Ж" /> Женский</label>
+                <label><input type="checkbox" class="gender-check" value="Д" /> Другое</label>
+            </div>
+            <div class="modal-buttons">
+                <button id="modalCreateBtn">Создать</button>
+                <button id="modalCancelBtn">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="passwordModal">
+        <div class="modal">
+            <h2>Введите пароль</h2>
+            <p>Комната <span id="passwordRoomName"></span> защищена паролем.</p>
+            <input type="password" id="passwordInput" placeholder="Пароль" />
+            <div class="modal-buttons">
+                <button id="passwordSubmitBtn">Войти</button>
+                <button id="passwordCancelBtn">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
